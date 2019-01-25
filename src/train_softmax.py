@@ -485,7 +485,7 @@ def parse_arguments(argv):
     parser.add_argument('--models_base_dir', type=str,
         help='Directory where to write trained models and checkpoints.', default='C:/Python/models/facenet')
     parser.add_argument('--gpu_memory_fraction', type=float,
-        help='Upper bound on the amount of GPU memory that will be used by the process.', default=0.7)
+        help='Upper bound on the amount of GPU memory that will be used by the process.', default=0.8)
     parser.add_argument('--pretrained_model', type=str,
         help='Load a pretrained model before training starts.')
     parser.add_argument('--data_dir', type=str,
@@ -515,7 +515,7 @@ def parse_arguments(argv):
     parser.add_argument('--keep_probability', type=float,
         help='Keep probability of dropout for the fully connected layer(s).', default=1.0)
     parser.add_argument('--weight_decay', type=float,
-        help='L2 weight regularization.', default=0.0)
+        help='L2 weight regularization.', default=5e-4)
     parser.add_argument('--center_loss_factor', type=float,
         help='Center loss factor.', default=0.0)
     parser.add_argument('--center_loss_alfa', type=float,
@@ -554,17 +554,17 @@ def parse_arguments(argv):
     parser.add_argument('--validate_every_n_epochs', type=int,
         help='Number of epoch between validation', default=5)
     parser.add_argument('--validation_set_split_ratio', type=float,
-        help='The ratio of the total dataset to use for validation', default=0.0)
+        help='The ratio of the total dataset to use for validation', default=0.01)
     parser.add_argument('--min_nrof_val_images_per_class', type=float,
         help='Classes with fewer images will be removed from the validation set', default=0)
  
     # Parameters for validation on LFW
     parser.add_argument('--lfw_pairs', type=str,
         help='The file containing the pairs to use for validation.', default='C:/Python/facenet/data/pairs.txt')
-    #parser.add_argument('--lfw_dir', type=str,
-        #help='Path to the data directory containing aligned face patches.', default='E:/test_align_lfw_rename')
     parser.add_argument('--lfw_dir', type=str,
-        help='Path to the data directory containing aligned face patches.', default='')
+        help='Path to the data directory containing aligned face patches.', default='E:/test_align_lfw_rename')
+    #parser.add_argument('--lfw_dir', type=str,
+        #help='Path to the data directory containing aligned face patches.', default='')
     parser.add_argument('--lfw_batch_size', type=int,
         help='Number of images to process in a batch in the LFW test set.', default=100)
     parser.add_argument('--lfw_nrof_folds', type=int,
